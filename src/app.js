@@ -1,11 +1,8 @@
 const express = require('express');
-
+const routes = require('./routes');
 const app = express();
 
-app.use(express.json());
+// Eliminamos el const port = 3000 y el app.listen de aquí
+routes(app);
 
-app.get('/test', (req, res) => {
-  res.status(200).send({ mensagem: 'Bienvenido a la API' });
-});
-
-module.exports = app;
+module.exports = app; // Exportamos solo la configuración
