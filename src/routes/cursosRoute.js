@@ -1,0 +1,28 @@
+const { Router } = require('express');
+const CursoController = require('../controllers/CursoController.js');
+
+const cursoController = new CursoController();
+
+const router = Router();
+
+// Endpoint: GET http://localhost:3000/cursos
+router.get('/cursos', (req, res) => {
+  cursoController.consultarTodos(req, res);
+});
+
+router.get('/cursos/:id', (req, res) => {
+  cursoController.consultarPorId(req, res);
+});
+
+router.post('/cursos', (req, res) => {
+  cursoController.crearRegistro(req, res);
+});
+
+router.put('/cursos/:id', (req, res) => {
+  cursoController.actualizarRegistro(req, res);
+});
+
+router.delete('/cursos/:id', (req, res) => {
+  cursoController.borrarRegistro(req, res);
+});
+module.exports = router;
